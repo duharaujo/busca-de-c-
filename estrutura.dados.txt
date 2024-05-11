@@ -1,0 +1,119 @@
+#include <iostream> 
+
+#include <vector> 
+
+#include <algorithm> 
+
+  
+
+using namespace std; 
+
+  
+
+// Método de ordenação (Bubble Sort) 
+
+void ordenarVetor(vector<int> &vetor) { 
+
+    int n = vetor.size(); 
+
+    for (int i = 0; i < n-1; i++) { 
+
+        for (int j = 0; j < n-i-1; j++) { 
+
+            if (vetor[j] > vetor[j+1]) { 
+
+                swap(vetor[j], vetor[j+1]); 
+
+            } 
+
+        } 
+
+    } 
+
+} 
+
+  
+
+// Método de busca binária 
+
+int buscaBinaria(const vector<int> &vetor, int valor) { 
+
+    int esquerda = 0; 
+
+    int direita = vetor.size() - 1; 
+
+    while (esquerda <= direita) { 
+
+        int meio = esquerda + (direita - esquerda) / 2; 
+
+        if (vetor[meio] == valor) { 
+
+            return meio; // valor encontrado, retorna o índice 
+
+        } 
+
+        if (vetor[meio] < valor) { 
+
+            esquerda = meio + 1; // descarta metade esquerda 
+
+        } else { 
+
+            direita = meio - 1; // descarta metade direita 
+
+        } 
+
+    } 
+
+    return -1; // valor não encontrado 
+
+} 
+
+  
+
+int main() { 
+
+    vector<int> numeros = {9, 5, 7, 2, 4, 1, 8, 3, 6}; 
+
+  
+
+    // Ordena o vetor 
+
+    ordenarVetor(numeros); 
+
+  
+
+    cout << "Vetor ordenado: "; 
+
+    for (int num : numeros) { 
+
+        cout << num << " "; 
+
+    } 
+
+    cout << endl; 
+
+  
+
+    // Realiza busca binária 
+
+    int valorBuscado = 5; 
+
+    int indice = buscaBinaria(numeros, valorBuscado); 
+
+    if (indice != -1) { 
+
+        cout << "O valor " << valorBuscado << " foi encontrado no índice " << indice << endl; 
+
+    } else { 
+
+        cout << "O valor " << valorBuscado << " não foi encontrado no vetor." << endl; 
+
+    } 
+
+  
+
+    return 0; 
+
+} 
+
+Nomes: Eduarda Araújo Martins
